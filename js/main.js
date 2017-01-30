@@ -136,7 +136,7 @@ window.onload = function() {
 
             autoplay: 4000,
 
-            slidesPerView: 3,
+
             autoHeight: true,
 
             spaceBetween: 30,
@@ -146,6 +146,28 @@ window.onload = function() {
             nextButton: '.swiper-button-next',
 
             prevButton: '.swiper-button-prev',
+            breakpoints: {
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
 
         });
 
@@ -582,6 +604,8 @@ function handleMapObjectClick(event) {
 }
 
 
+
+/* Animate elements on view after scroll*/
 
 
 

@@ -854,6 +854,11 @@ body.noscroll {
 }
 .special-one-block img {
     width: 100%;
+    height: 100%;
+}
+
+.special-one-block a {
+    display: block;
 }
 
 .special-one-block a:after {
@@ -865,7 +870,7 @@ body.noscroll {
     content: '';
     width: 100%;
     height: 5px;
-    background-color: #f9a825;
+    background-color: transparent;
     -webkit-transform: scalex(0);
     -ms-transform: scalex(0);
     -moz-transform: scalex(0);
@@ -884,6 +889,7 @@ body.noscroll {
     -o-transform: scalex(1);
     transform: scalex(1);
     opacity: 1;
+    background-color: #f9a825;
 }
 
 .special-block-title {
@@ -1149,6 +1155,8 @@ body.noscroll {
     font: normal 15px/18px 'Roboto-Light', sans-serif;
     color: #7c7c7c;
     width: 100%;
+    max-width: 1560px;
+    margin: 0 auto;
 }
 
 .footer {
@@ -1248,6 +1256,7 @@ body.noscroll {
     text-align: center;
     height: 115px;
     line-height: 115px;
+    width: 135px;
 }
 
 .catalog-item:not(:last-child) {
@@ -1256,7 +1265,8 @@ body.noscroll {
 
 .catalog-item.active {
     background-color: #252525;
-    margin-right: -50px;
+    margin-right: -65px;
+    width: 200px;
 }
 
 .catalog-item.active:not(:last-child) {
@@ -1314,12 +1324,10 @@ body.noscroll {
     opacity: 0;
     padding: 0 30px;
     z-index: 0;
+    line-height: 180px;
 }
 
 .catalog-img img {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
 }
 
 
@@ -2123,6 +2131,133 @@ body.noscroll {
 #map {
     height: 600px;
 }
+
+
+
+
+
+
+
+/*3 grid layout*/
+
+
+/*bounce up animation for the subject*/
+
+.animation-element {
+  opacity: 0;
+  -moz-transition: all 700ms ease-out;
+  -webkit-transition: all 700ms ease-out;
+  -o-transition: all 700ms ease-out;
+  transition: all 700ms ease-out;
+  -moz-transform: translate3d(0px, 200px, 0px);
+  -webkit-transform: translate3d(0px, 200px, 0px);
+  -o-transform: translate(0px, 200px);
+  -ms-transform: translate(0px, 200px);
+  transform: translate3d(0px, 200, 0px);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.animation-element.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+
+.animation-element.slide-left {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(-100px, 0px, 0px);
+  -webkit-transform: translate3d(-100px, 0px, 0px);
+  -o-transform: translate(-100px, 0px);
+  -ms-transform: translate(-100px, 0px);
+  transform: translate3d(-100px, 0px, 0px);
+}
+
+.animation-element.slide-left.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.animation-element.slide-right {
+  opacity: 0;
+  -moz-transition: all 500ms linear;
+  -webkit-transition: all 500ms linear;
+  -o-transition: all 500ms linear;
+  transition: all 500ms linear;
+  -moz-transform: translate3d(100px, 0px, 0px);
+  -webkit-transform: translate3d(100px, 0px, 0px);
+  -o-transform: translate(100px, 0px);
+  -ms-transform: translate(100px, 0px);
+  transform: translate3d(100px, 0px, 0px);
+}
+
+.animation-element.slide-right.in-view {
+  opacity: 1;
+  -moz-transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
+}
+
+
+
+/*media queries for small devices*/
+@media screen and (max-width: 678px){
+  /*testimonials*/
+  .animation-element.slide-left.testimonial,
+  .animation-element.slide-left.testimonial:nth-of-type(odd),
+  .animation-element.slide-left.testimonial:nth-of-type(even){
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+  }
+  .animation-element.slide-left.testimonial .right,
+  .animation-element.slide-left.testimonial .left,
+  .animation-element.slide-left.testimonial .content,
+  .animation-element.slide-left.testimonial .rating{
+    text-align: center;
+    float: none;
+  }
+  .animation-element.slide-left.testimonial img{
+    width: 85px;
+    height: 85px;
+    margin-bottom: 5px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1559px) {
     .container {

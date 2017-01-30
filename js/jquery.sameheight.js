@@ -13,6 +13,12 @@ function initSameHeight() {
         multiLine: true,
         biggestHeight: true
     });
+    jQuery('.special').sameHeight({
+        elements: '.special-one-block',
+        flexible: true,
+        multiLine: true,
+        biggestHeight: true
+    });
 
 };
 (function($) {

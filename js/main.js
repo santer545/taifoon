@@ -135,6 +135,7 @@ window.onload = function() {
             loop: true,
 
             autoplay: 4000,
+            slidesPerView: 3,
 
 
             autoHeight: true,
@@ -216,7 +217,9 @@ $(document).ready(function() {
     $('input, textarea').placeholder();
 
     $(".owl-carousel").owlCarousel({
-        items: 1
+        items: 1,
+        nav: true,
+        navText: ["<svg class='icon icon-slider-left'><use xlink:href='#icon-slider-left'></use></svg>","<svg class='icon icon-slider-right'><use xlink:href='#icon-slider-right'></use></svg>"]
     });
 
     $('.modal').modal({

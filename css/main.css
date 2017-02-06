@@ -3925,6 +3925,9 @@ input[type=email]:focus:not([readonly]) {
     body {
         font: normal 12px / 20px 'Roboto-Light', sans-serif;
     }
+    .main-fourth-section .row {
+        padding: 40px 0;
+    }
     .heading-h1 {
         font-size: 2rem;
         line-height: 2rem;
@@ -4081,6 +4084,9 @@ input[type=email]:focus:not([readonly]) {
     .catalog-right {
         padding: 30px 30px 0;
     }
+    .logo {
+        margin-top: 70px;
+    }
 }
 
 @media screen and (max-width: 650px) {
@@ -4107,6 +4113,15 @@ input[type=email]:focus:not([readonly]) {
         -ms-transform: translate(0, 0);
         -o-transform: translate(0, 0);
         transform: translate(0, 0);
+    }
+    .main-slider-section .title {
+        padding-bottom: 30px;
+    }
+    .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+        left: 0;
+    }
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+        right: 3px;
     }
     .title {
         font-size: 34px;
@@ -4142,8 +4157,26 @@ input[type=email]:focus:not([readonly]) {
     .text-left-prod,
     .left-title,
     .title-banner-holder,
-    .text-left {
+    .text-left,
+    .main-third-section .content {
         position: static;
+    }
+
+    .title-banner-holder {
+        padding: 0 20px;
+    }
+
+    .main-third-section {
+        padding: 20px;
+    }
+    .main-third-section .content {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+    .special .title {
+        margin-top: 30px;
     }
     .main-fourth-section {
         max-height: none;

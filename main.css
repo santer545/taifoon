@@ -497,6 +497,13 @@ body {
     transform: rotate(135deg);
 }
 
+
+.gamburger-holder {
+    position: absolute;
+    right: 60px;
+    top: 18px;
+}
+
 .content {
     font: 20px/24px 'Roboto-Light', sans-serif;
     line-height: 26px;
@@ -1139,7 +1146,7 @@ body {
 @media screen and (max-width: 1099px) {
 
     .text-right{
-        left: 47%; 
+        left: 47%;
     }
 
     .right-dark-block .prod-cont {
@@ -1188,7 +1195,7 @@ body {
         transition-property: transform;
         transition-property: transform, -webkit-transform;
         border-radius: 4px;
-        background-color: #292929; }
+        background-color: #fff; }
         .hamburger-inner {
         display: block;
         margin-top: -2px;

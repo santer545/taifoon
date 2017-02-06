@@ -19,6 +19,24 @@ function initSameHeight() {
         multiLine: true,
         biggestHeight: true
     });
+    jQuery('.row').sameHeight({
+        elements: '.category-item',
+        flexible: true,
+        multiLine: true,
+        biggestHeight: true
+    });
+    jQuery('.row').sameHeight({
+        elements: '.tabs-item',
+        flexible: true,
+        multiLine: true,
+        biggestHeight: true
+    });
+    jQuery('.representation-list').sameHeight({
+        elements: '.representation-item',
+        flexible: true,
+        multiLine: true,
+        biggestHeight: true
+    });
 
 };
 (function($) {

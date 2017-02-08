@@ -138,7 +138,7 @@ window.onload = function() {
             slidesPerView: 3,
 
 
-            autoHeight: true,
+            autoHeight: false,
 
             spaceBetween: 30,
 
@@ -182,10 +182,19 @@ $(window).resize(function() {
     $(".news-text").dotdotdot();
     $(".heading-pagination").dotdotdot();
     $(".prod-cont-holder").dotdotdot();
+
+
+    /* destroy language on mobile */
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        $('.selectpicker').selectric('destroy');
+    }
 });
 
 
+
+
 $(document).ready(function() {
+
 
     $('.open-drop-menu').on('click', function() {
         $(this).parents('.with-menu').find('.mobile-menu-drop ').slideToggle(500);
@@ -246,7 +255,45 @@ $(document).ready(function() {
     $(".product-text-holder").dotdotdot();
     $(".news-text").dotdotdot();
     $(".heading-pagination").dotdotdot();
-    $(".prod-cont-holder").dotdotdot();
+    /*$(".prod-cont-holder").dotdotdot();*/
+
+    $(".prod-cont-holder p").dotdotdot({
+        /*  The text to add as ellipsis. */
+        ellipsis: '... ',
+
+        /*  How to cut off the text/html: 'word'/'letter'/'children' */
+        wrap: 'word',
+
+        /*  Wrap-option fallback to 'letter' for long words */
+        fallbackToLetter: true,
+
+        /*  jQuery-selector for the element to keep and put after the ellipsis. */
+        after: null,
+
+        /*  Whether to update the ellipsis: true/'window' */
+        watch: false,
+
+        /*  Optionally set a max-height, can be a number or function.
+            If null, the height will be measured. */
+        height: null,
+
+        /*  Deviation for the height-option. */
+        tolerance: 0,
+
+        /*  Callback function that is fired after the ellipsis is added,
+            receives two parameters: isTruncated(boolean), orgContent(string). */
+        callback: function(isTruncated, orgContent) {},
+
+        lastCharacter: {
+
+            /*  Remove these characters from the end of the truncated text. */
+            remove: [' ', ',', ';', '.', '!', '?'],
+
+            /*  Don't add an ellipsis if this array contains
+                the last character of the truncated text. */
+            noEllipsis: []
+        }
+    });
 
 
     //placeholder
@@ -288,8 +335,84 @@ $(document).ready(function() {
 
 
 
+    $('.js-arrow').on('click', function() {
+
+        var id_selector = $('#js-second-section');
+
+        $('html, body').animate({
+            scrollTop: ($(id_selector).offset().top)
+        }, 1200);
+
+        return false;
+    });
+
+
+
+    $('.dropdown-content li a').click(function() {
+        var text = $(this).text();
+        $(this).closest('.language-wr').find('.btn').text(text);
+    });
+
+
+
+
+
+    $('.language-wr').find('.dropdown-content').find('li:eq(0)').hide();
+
+
+
+
+    // language dropdown
+
+    languageDropDown();
+
+
+    // back to top
+
+
+    if ($('.js-back-to-top').length) {
+        var scrollTrigger = 100,
+            backToTop = function() {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('.js-back-to-top').addClass('show');
+                } else {
+                    $('.js-back-to-top').removeClass('show');
+                }
+            };
+        backToTop();
+        $(window).on('scroll', function() {
+            backToTop();
+        });
+        $('.js-back-to-top').on('click', function(e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
+
+
+
+
 
 }); //end documentReady
+
+
+
+function languageDropDown() {
+    $('.language-wr a').click(function() {
+        var linkText = $(this).text();
+        $(this).siblings('.dropdown-content').find('a').each(function(i, element) {
+            var currentLang = $(this).text();
+            if (linkText == currentLang) {
+                $(this).closest('li').hide();
+            } else {
+                $(this).closest('li').show();
+            }
+        });
+    });
+}
 
 // validate form
 function validate(form) {
@@ -315,12 +438,21 @@ function validate(form) {
         switch ($(this).attr("data-validate")) {
             case undefined:
                 mark($(this), $.trim($(this).val()).length === 0);
+                $(this).closest('.input-field').find('.error-text').text('Заполните поле');
                 break;
             case "email":
                 email = true;
                 reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
                 mark($(this), !reg.test($.trim($(this).val())));
                 email = false;
+                console.log($(this).closest('.input-field').val());
+
+                $(this).closest('.input-field').find('.error-text').text('Введите корректный email');
+
+                if($(this).closest('.input-field').val() == '') {
+                    $(this).closest('.input-field').find('.error-text').text('Заполните поле');
+                }
+
                 break;
             case "phone":
                 phone = true;

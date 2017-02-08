@@ -8,10 +8,12 @@
     <meta name="format-detection" content="telephone=no">
     <title>Taifun2000</title>
     <!-- <link rel="shortcut icon" href="images/ico-16.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/Glyphter.css">
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -19,6 +21,62 @@
     script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
     script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     -->
+
+    <style>
+    /*preloader*/
+
+    .preloader {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 678;
+        top: 0;
+        left: 0;
+        background: #fff;
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .preload-gif {
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .loading .preload-gif {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .preload-logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin: auto;
+        opacity: 1;
+        cursor: default;
+        pointer-events: none;
+        font-size: 0;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .preload-logo img {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .loading .preloader {
+        opacity: 0;
+    }
+    /*end preloader*/
+    </style>
 </head>
 
 <body class="noscroll inner-page">
@@ -517,11 +575,15 @@
                     <div class="gamburger-holder">
                         <span class="hamburger--collapse js_open_mob_menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span>
                         </span>
-                        <select name="language" id="language" class="selectpicker selectpicker-mobile">
-                            <option value="">Укр</option>
-                            <option value="">Eng</option>
-                            <option value="">Рус</option>
-                        </select>
+                        <div class="language-wr language-wr--mobile">
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown-mobile'>Рус</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown-mobile' class='dropdown-content'>
+                                <li><a href="#!">Рус</a></li>
+                                <li><a href="#!">Укр</a></li>
+                                <li><a href="#!">Eng</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="header-nav js-animate animation-element slide-menu">
                         <ul class="menu-nav">
@@ -531,11 +593,19 @@
                             <li class="active-nav-item"><span>Корпоративная культура</span></li>
                             <li><a href="#">Новости</a></li>
                             <li><a href="#">Контакты</a></li>
-                        </ul>
-                        <ul class="menu-nav nav-partners">
                             <li class="item-partners"><a href="#">Информация для партнеров</a></li>
                             <li class="item-partners"><a href="#">Карьера</a></li>
                         </ul>
+
+                        <div class="language-wr">
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Рус</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="#!">Рус</a></li>
+                                <li><a href="#!">Укр</a></li>
+                                <li><a href="#!">Eng</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </header>
                 <div class="js-animate animation-element">
@@ -552,7 +622,7 @@
                         <img src="assets/images/news-one-1.jpg" alt="">
                     </figure>
                     <div class="text-block js-animate animation-element">
-                        <p class="news-detail-date">03.10.16</p>
+                        <time class="news-detail-date">03.10.16</time>
                         <p class="heading-inner">Десерты Creamoire: вкусные сладости Kremuar </p>
                         <div class="news-detail-text">
                             <p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потом, что тот обеспечиваетболее или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. </p>
@@ -587,17 +657,23 @@
                         <div class="row">
                             <div class="col l6 m6 s12">
                                 <a href="#" class="news-pagination">
-                                    <span class="news-detail-date">13.02.16</span>
-                                    <div class="heading-pagination"> интересное о Десертe Creamoire "фондат"</div>
+                                    <time class="news-detail-date">13.02.16</time>
+                                    <div class="heading-pagination"> интересное о Десертe Creamoire "фондат"интересное о Десертe Creamoire "фондат"интересное о Десертe Creamoire "фондат"</div>
                                     <p class="news-arrow news-arrow--rotate">
-                                        <svg class="icon icon-arrow-right">
+                                    <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="27px" height="7.766px" viewBox="0 0 27 7.766" enable-background="new 0 0 27 7.766" xml:space="preserve">
+<path d="M0,3.887c0,0.296,0.24,0.531,0.536,0.531h24.643l-2.436,2.436c-0.209,0.209-0.209,0.544,0,0.754
+    c0.209,0.209,0.545,0.209,0.754,0l3.347-3.347C26.948,4.157,27,4.022,27,3.882c0-0.135-0.052-0.274-0.156-0.379l-3.347-3.346
+    c-0.209-0.209-0.545-0.209-0.754,0c-0.209,0.209-0.209,0.544,0,0.753l2.436,2.436H0.536C0.24,3.351,0,3.591,0,3.887z"/>
+</svg>
+                                        <!--<svg class="icon icon-arrow-right">
                                             <use xlink:href="#icon-arrow-right"></use>
-                                        </svg>Читать дальше</p>
+                                        </svg>-->Читать дальше</p>
                                 </a>
                             </div>
                             <div class="col l6 m6 s12">
                                 <a href="#" class="news-pagination news-pagination--right">
-                                    <span class="news-detail-date">13.02.16</span>
+                                    <time class="news-detail-date">13.02.16</time>
                                     <div class="heading-pagination"> интересное о Десертe Creamoire "фондат"</div>
                                     <p class="news-arrow">Читать дальше
                                         <svg class="icon icon-arrow-right">
@@ -618,21 +694,12 @@
                         <div class="col l4 m12 s12">
                             <p class="foot-title foot-title-first">Свяжитесь с нами</p>
                             <ul class="foot-nav foot-contact">
-                                <li class="foot-nav-item"><span class="icon-ico-02"></span><a href="tel:80005855858" target="_blank">8 000 585 58 58</a></li>
-                                <li class="foot-nav-item"><span class="icon-ico-03"></span><a href="info@taifun-2000.ua" target="_blank">info@taifun-2000.ua</a></li>
+                                <li class="foot-nav-item"><a href="tel:80005855858"><span class="icon-ico-02"></span><span>8 000 585 58 58</span></a></li>
+                                <li class="foot-nav-item"><a href="mailto:info@taifun-2000.ua"><span class="icon-ico-03"></span><span>info@taifun-2000.ua</span></a></li>
                             </ul>
                         </div>
                         <div class="foot-block-nav col l8 m12 s12">
-                            <div class="col l4 m4 s12">
-                                <div class="foot-title">О нас</div>
-                                <ul class="foot-nav">
-                                    <li><a href="#">Производство</a></li>
-                                    <li><a href="#">Инновации</a></li>
-                                    <li><a href="#">Корпоративная культура</a></li>
-                                    <li><a href="#">Новости</a></li>
-                                </ul>
-                            </div>
-                            <div class="col l4 m5 s12">
+                            <div class="col l4 m5 s6">
                                 <div class="foot-title">Наша продукция</div>
                                 <ul class="foot-nav">
                                     <li><a href="#">Фруктовые десерты Jolino™</a></li>
@@ -640,6 +707,15 @@
                                     <li><a href="#">Десерты Creamoire™</a></li>
                                     <li><a href="#">Закуски Пикник-меню™</a></li>
                                     <li><a href="#">Жульен Пикник-меню™</a></li>
+                                </ul>
+                            </div>
+                            <div class="col l4 m4 s6">
+                                <div class="foot-title">О нас</div>
+                                <ul class="foot-nav">
+                                    <li class="active"><span>Производство</span></li>
+                                    <li><a href="#">Инновации</a></li>
+                                    <li><a href="#">Корпоративная культура</a></li>
+                                    <li><a href="#">Новости</a></li>
                                 </ul>
                             </div>
                             <div class="col l4 m3 s12 right">
@@ -671,7 +747,7 @@
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
+
     <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
     <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/ukraineLow.js"></script>
     <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>

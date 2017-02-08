@@ -8,10 +8,12 @@
     <meta name="format-detection" content="telephone=no">
     <title>Taifun2000</title>
     <!-- <link rel="shortcut icon" href="images/ico-16.png" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/Glyphter.css">
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/selectric.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -19,10 +21,65 @@
     script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
     script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     -->
+    <style>
+    /*preloader*/
+
+    .preloader {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 678;
+        top: 0;
+        left: 0;
+        background: #fff;
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .preload-gif {
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .loading .preload-gif {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .preload-logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        margin: auto;
+        opacity: 1;
+        cursor: default;
+        pointer-events: none;
+        font-size: 0;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .preload-logo img {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .loading .preloader {
+        opacity: 0;
+    }
+    /*end preloader*/
+    </style>
 </head>
 
 <body class="noscroll inner-page">
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <symbol id="icon-arrow-bottom" viewBox="0 0 57 32">
                 <title>arrow-bottom</title>
@@ -267,11 +324,8 @@
             <section class="top-inner">
                 <div class="main-img"></div>
                 <header class="header clearfix">
-                    <div class="mobile-handle">
-                        <span class="hamburger--collapse js_open_mob_menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span>
-                        </span>
-                    </div>
-                    <div class="logo">
+
+                    <a class="logo">
                         <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="237.949px" height="91px" viewBox="0 0 237.949 91" enable-background="new 0 0 237.949 91" xml:space="preserve">
                             <g>
                                 <g>
@@ -516,15 +570,19 @@
                                 </g>
                             </g>
                         </svg>
-                    </div>
+                    </a>
                     <div class="gamburger-holder">
                         <span class="hamburger--collapse js_open_mob_menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span>
                         </span>
-                        <select name="language" id="language" class="selectpicker selectpicker-mobile">
-                            <option value="">Укр</option>
-                            <option value="">Eng</option>
-                            <option value="">Рус</option>
-                        </select>
+                        <div class="language-wr language-wr--mobile">
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown-mobile'>Рус</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown-mobile' class='dropdown-content'>
+                                <li><a href="#!">Рус</a></li>
+                                <li><a href="#!">Укр</a></li>
+                                <li><a href="#!">Eng</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="header-nav js-animate animation-element slide-menu">
                         <ul class="menu-nav">
@@ -534,15 +592,23 @@
                             <li class="active-nav-item"><span>Корпоративная культура</span></li>
                             <li><a href="#">Новости</a></li>
                             <li><a href="#">Контакты</a></li>
-                        </ul>
-                        <ul class="menu-nav nav-partners">
                             <li class="item-partners"><a href="#">Информация для партнеров</a></li>
                             <li class="item-partners"><a href="#">Карьера</a></li>
                         </ul>
+
+                        <div class="language-wr">
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Рус</a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="#!">Рус</a></li>
+                                <li><a href="#!">Укр</a></li>
+                                <li><a href="#!">Eng</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </header>
                 <div class="js-animate animation-element">
-                <p class="heading-h1 center-align">производство</p>
+                    <p class="heading-h1 center-align">производство</p>
                 </div>
             </section>
             <ul class="col s12 breadcrumbs">
@@ -556,7 +622,7 @@
                             <figure><img src="assets/images/production-1.jpg" alt=""></figure>
                         </div>
                         <div class="production-preview js-animate animation-element slide-right">
-                            <svg class="js-animate animation-element" version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="87.4px" height="123.974px" viewBox="0 0 87.4 123.974" enable-background="new 0 0 87.4 123.974" xml:space="preserve">
+                            <svg class="js-animate animation-heading animation-element" version="1.1" id="Шар_9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="87.4px" height="123.974px" viewBox="0 0 87.4 123.974" enable-background="new 0 0 87.4 123.974" xml:space="preserve">
                                 <g>
                                     <g>
                                         <g>
@@ -596,8 +662,8 @@
                         <div class="production-img production-img--inverse js-animate animation-element slide-left">
                             <figure><img src="assets/images/production-2.jpg" alt=""></figure>
                         </div>
-                        <div class="production-preview production-preview--inverse js-animate animation-element slide-right">
-                            <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="98px" height="122.883px" viewBox="0 0 98 122.883" enable-background="new 0 0 98 122.883" xml:space="preserve">
+                        <div class="production-preview production-preview--inverse js-animate animation-element">
+                            <svg class="js-animate animation-heading animation-element" version="1.1" id="Шар_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="98px" height="122.883px" viewBox="0 0 98 122.883" enable-background="new 0 0 98 122.883" xml:space="preserve">
                                 <g>
                                     <g>
                                         <g>
@@ -642,7 +708,7 @@
                             <figure><img src="assets/images/production-3.jpg" alt=""></figure>
                         </div>
                         <div class="production-preview js-animate animation-element slide-right">
-                            <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="82px" height="124.333px" viewBox="0 0 82 124.333" enable-background="new 0 0 82 124.333" xml:space="preserve">
+                            <svg class="js-animate animation-heading" version="1.1" id="Шар_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="82px" height="124.333px" viewBox="0 0 82 124.333" enable-background="new 0 0 82 124.333" xml:space="preserve">
                                 <g>
                                     <g>
                                         <g>
@@ -691,7 +757,7 @@
                             <figure><img src="assets/images/production-4.jpg" alt=""></figure>
                         </div>
                         <div class="production-preview production-preview--inverse js-animate animation-element slide-right">
-                            <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="89px" height="122.896px" viewBox="0 0 89 122.896" enable-background="new 0 0 89 122.896" xml:space="preserve">
+                            <svg class="js-animate animation-heading animation-element" version="1.1" id="Шар_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="89px" height="122.896px" viewBox="0 0 89 122.896" enable-background="new 0 0 89 122.896" xml:space="preserve">
                                 <g>
                                     <g>
                                         <g>
@@ -719,7 +785,7 @@
                                 </g>
                             </svg>
                             <div class="production-heading">Инновации</div>
-                            <div class="production-title">      Собственный отдел инновационных технологий</div>
+                            <div class="production-title"> Собственный отдел инновационных технологий</div>
                             <p class="production-text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потом, что тот обеспечиваетболее или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации “Здесь ваш текст.. Здесь ваш
                             </p>
                         </div>
@@ -729,7 +795,7 @@
                             <figure><img src="assets/images/production-5.jpg" alt=""></figure>
                         </div>
                         <div class="production-preview js-animate animation-element slide-right">
-                            <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="88px" height="129.896px" viewBox="0 0 88 129.896" enable-background="new 0 0 88 129.896" xml:space="preserve">
+                            <svg class="js-animate animation-heading animation-element" version="1.1" id="Шар_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="88px" height="129.896px" viewBox="0 0 88 129.896" enable-background="new 0 0 88 129.896" xml:space="preserve">
                                 <g>
                                     <g>
                                         <path fill="#CC9107" d="M8.037,116.938l16.709-9.525c-0.614-0.361-1.219-0.74-1.813-1.137l-16.28,9.28
@@ -772,7 +838,7 @@
                             <figure><img src="assets/images/production-6.jpg" alt=""></figure>
                         </div>
                         <div class="production-preview production-preview--inverse js-animate animation-element slide-right">
-                            <svg version="1.1" id="Шар_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90px" height="126.332px" viewBox="0 0 90 126.332" enable-background="new 0 0 90 126.332" xml:space="preserve">
+                            <svg class="js-animate animation-heading animation-element" version="1.1" id="Шар_6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90px" height="126.332px" viewBox="0 0 90 126.332" enable-background="new 0 0 90 126.332" xml:space="preserve">
                                 <g>
                                     <g>
                                         <path fill="#CC9107" d="M67.898,107.032c0.5-0.147,0.807-0.685,0.685-1.191c-0.126-0.506-0.632-0.798-1.129-0.649l-34.215,19.502
@@ -827,21 +893,12 @@
                         <div class="col l4 m12 s12">
                             <p class="foot-title foot-title-first">Свяжитесь с нами</p>
                             <ul class="foot-nav foot-contact">
-                                <li class="foot-nav-item"><span class="icon-ico-02"></span><a href="tel:80005855858" target="_blank">8 000 585 58 58</a></li>
-                                <li class="foot-nav-item"><span class="icon-ico-03"></span><a href="info@taifun-2000.ua" target="_blank">info@taifun-2000.ua</a></li>
+                                <li class="foot-nav-item"><a href="tel:80005855858"><span class="icon-ico-02"></span><span>8 000 585 58 58</span></a></li>
+                                <li class="foot-nav-item"><a href="mailto:info@taifun-2000.ua"><span class="icon-ico-03"></span><span>info@taifun-2000.ua</span></a></li>
                             </ul>
                         </div>
                         <div class="foot-block-nav col l8 m12 s12">
-                            <div class="col l4 m4 s12">
-                                <div class="foot-title">О нас</div>
-                                <ul class="foot-nav">
-                                    <li><a href="#">Производство</a></li>
-                                    <li><a href="#">Инновации</a></li>
-                                    <li><a href="#">Корпоративная культура</a></li>
-                                    <li><a href="#">Новости</a></li>
-                                </ul>
-                            </div>
-                            <div class="col l4 m5 s12">
+                            <div class="col l4 m5 s6">
                                 <div class="foot-title">Наша продукция</div>
                                 <ul class="foot-nav">
                                     <li><a href="#">Фруктовые десерты Jolino™</a></li>
@@ -849,6 +906,15 @@
                                     <li><a href="#">Десерты Creamoire™</a></li>
                                     <li><a href="#">Закуски Пикник-меню™</a></li>
                                     <li><a href="#">Жульен Пикник-меню™</a></li>
+                                </ul>
+                            </div>
+                            <div class="col l4 m4 s6">
+                                <div class="foot-title">О нас</div>
+                                <ul class="foot-nav">
+                                    <li class="active"><span>Производство</span></li>
+                                    <li><a href="#">Инновации</a></li>
+                                    <li><a href="#">Корпоративная культура</a></li>
+                                    <li><a href="#">Новости</a></li>
                                 </ul>
                             </div>
                             <div class="col l4 m3 s12 right">
@@ -876,22 +942,24 @@
                 </div>
             </div>
         </footer>
-        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    </div>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
     <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/ukraineLow.js"></script>
     <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js" type="text/javascript"></script>
     <script src="https://www.amcharts.com/lib/3/maps/js/continentsLow.js"></script>
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <script src="https://www.amcharts.com/lib/3/themes/light.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
-        <script type="text/javascript" src="js/swiper.min.js"></script>
-        <script src="js/jquery.sameheight.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="js/classList.min.js"></script>
-        <script type="text/javascript" src="js/jquery.selectric.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+
+    <script src="js/jquery.sameheight.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="js/classList.min.js"></script>
+    <script type="text/javascript" src="js/jquery.selectric.js"></script>
+    <script type="text/javascript" src="js/jquery.dotdotdot.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
